@@ -1,7 +1,7 @@
 import { HostListener } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { environment } from "src/environments/environment";
-import { CourierInterface } from "./state/  courier/courier.interface";
+import { CourierInterface } from "./state/courier/courier.interface";
 import { CartInterface, ParcelDetailsInterface } from "./state/parcel/parcels.interface";
 import { ReceiverInterface } from "./state/receiver/receiver.interface";
 import { SenderInterface } from './state/sender/sender.interface';

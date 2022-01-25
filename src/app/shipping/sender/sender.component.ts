@@ -6,7 +6,7 @@ import { AppConstants } from 'src/app/shared/constants/app.constants';
 import { ServiceService } from '../services/service.service';
 import { SettingHeader } from '../setting-header';
 import { senderInfo } from '../state/sender/sender';
-import { PhoneCodeSelectListInterface, SelectListInterface } from '../state/shipping.interface';
+import { CountrySelectList } from '../state/shipping.interface';
 
 @Component({
   selector: 'app-sender',
@@ -14,8 +14,7 @@ import { PhoneCodeSelectListInterface, SelectListInterface } from '../state/ship
   styleUrls: ['./sender.component.css']
 })
 export class SenderComponent extends SettingHeader implements OnInit {
-  countries:SelectListInterface[] = [];
-  phoneCodeList:PhoneCodeSelectListInterface[] = [];
+  countries:CountrySelectList[] = [];
   constructor(
     private router:Router,
     private activateRouter:ActivatedRoute,
@@ -27,7 +26,6 @@ export class SenderComponent extends SettingHeader implements OnInit {
       this.createForm();
       this.getCountries();
       this.loadLocalData();
-      this.getPhoneCode();
   }
 
   loadLocalData(){
@@ -49,14 +47,6 @@ export class SenderComponent extends SettingHeader implements OnInit {
     )
     .subscribe();
   }
-
-public getPhoneCode(){
-  this._service.get_phoneCodes()
-  .pipe(
-    tap((res)=>this.phoneCodeList=res)
-  )
-  .subscribe();
-}
 
 
   createForm(){

@@ -15,7 +15,7 @@
       <label for="phone" class="text-light col-12">Phone No</label>
       <div class="col-6">
         <select formControlName="shipperPhoneCode" class="form-control bg-dark" name="phonecode" id="phonecode">
-          <option *ngFor="let c of phoneCodeList" [value]="c.value">{{c.countryName}} {{c.text}}</option>
+          <option *ngFor="let c of countries" [value]="c.phonePrefixValue">{{c.name}} {{c.phonePrefixText}}</option>
         </select>
       </div>
       <div class="col-6">
@@ -73,7 +73,7 @@
         <label for="country" class="text-light">Country</label>
         <select name="country" formControlName="shipperCountryCode" id="country" class="form-control bg-dark"
           [ngClass]="{'is-invalid': invalidInput('shipperCountryCode')}" placeholder="Country">
-          <option *ngFor="let c of countries" [value]="c.value">{{c.text}}</option>
+          <option *ngFor="let c of countries" [value]="c.id">{{c.name}}</option>
         </select>
         <span *ngIf="invalidInput('shipperCountryCode')" class="text-danger">Country is required</span>
       </div>

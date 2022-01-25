@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { ServiceService } from '../services/service.service';
 import { SettingHeader } from '../setting-header';
-import { courierServiceData } from '../state/  courier/courier-service';
-import { CourierInterface, CourierParamsInterface } from '../state/  courier/courier.interface';
+import { courierServiceData } from '../state/courier/courier-service';
+import { CourierInterface, CourierParamsInterface } from '../state/courier/courier.interface';
 
 @Component({
   selector: 'app-courier-service-options',

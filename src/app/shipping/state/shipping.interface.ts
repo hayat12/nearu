@@ -7,3 +7,10 @@ export interface PhoneCodeSelectListInterface{
   value:string;
   countryName:string;
 }
+
+export interface CountrySelectList{
+  id: string;
+  name: string;
+  phonePrefixText: string;
+  phonePrefixValue: string;
+}

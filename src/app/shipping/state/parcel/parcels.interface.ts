@@ -1,4 +1,4 @@
-import { CourierInterface } from "../  courier/courier.interface";
+import { CourierInterface } from "../courier/courier.interface";
 import { ReceiverInterface } from "../receiver/receiver.interface";
 import { SenderInterface } from "../sender/sender.interface";
 import { ActionsTypes } from "../shipping.enum";

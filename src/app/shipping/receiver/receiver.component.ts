@@ -6,7 +6,7 @@ import { AppConstants } from 'src/app/shared/constants/app.constants';
 import { ServiceService } from '../services/service.service';
 import { SettingHeader } from '../setting-header';
 import { receiverInfo } from '../state/receiver/receiver';
-import { PhoneCodeSelectListInterface, SelectListInterface } from '../state/shipping.interface';
+import { CountrySelectList, PhoneCodeSelectListInterface, SelectListInterface } from '../state/shipping.interface';
 
 @Component({
   selector: 'app-receiver',
@@ -14,7 +14,7 @@ import { PhoneCodeSelectListInterface, SelectListInterface } from '../state/ship
   styleUrls: ['./receiver.component.css']
 })
 export class ReceiverComponent extends SettingHeader implements OnInit, OnDestroy {
-  countries:SelectListInterface[] = [];
+  countries:CountrySelectList[] = [];
   phoneCodeList:PhoneCodeSelectListInterface[] = [];
   constructor(
     private router:Router,
@@ -30,7 +30,6 @@ export class ReceiverComponent extends SettingHeader implements OnInit, OnDestro
     this.createForm();
     this.getCountries();
     this.loadLocalData();
-    this.getPhoneCode();
 }
 getCountries(){
   this._service.get_countries()
@@ -66,14 +65,6 @@ createForm(){
       receiverCountryCode: ["MY", [Validators.required]],
     }
   );
-}
-
-public getPhoneCode(){
-  this._service.get_phoneCodes()
-  .pipe(
-    tap((res)=>this.phoneCodeList=res)
-  )
-  .subscribe();
 }
 
   toParceDetials(){
