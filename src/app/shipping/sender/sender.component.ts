@@ -59,7 +59,7 @@ export class SenderComponent extends SettingHeader implements OnInit {
     this.form = this.fb.group(
       {
         shipperName: ["", [Validators.required]],
-        shipperContact: [null, [Validators.required, Validators.pattern(AppConstants.FORM_VALIDATION.PHONE_NO)]],
+        shipperContact: [null, [Validators.required]],
         shipperPhoneCode: ["60", [Validators.required]],
         shipperEmail: [null],
         shipperAddress1: [null, [Validators.required]],

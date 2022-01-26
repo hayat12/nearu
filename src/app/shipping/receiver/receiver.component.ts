@@ -62,7 +62,7 @@ createForm(){
   this.form = this.fb.group(
     {
       receiverName: [null, [Validators.required]],
-      receiverContact: [null, [Validators.required, Validators.pattern(AppConstants.FORM_VALIDATION.PHONE_NO)]],
+      receiverContact: [null, [Validators.required]],
       receiverPhoneCode: ["60", [Validators.required]],
       receiverEmail: [null],
       receiverAddress1: [null, [Validators.required]],
