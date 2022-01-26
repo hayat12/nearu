@@ -13,12 +13,19 @@
 
     <div class="row mt-2">
       <label for="phone" class="text-light col-12">Phone No</label>
-      <div class="col-6">
-        <select formControlName="shipperPhoneCode" class="form-control bg-dark" name="phonecode" id="phonecode">
-          <option *ngFor="let c of countries" [value]="c.phonePrefixValue">{{c.name}} {{c.phonePrefixText}}</option>
-        </select>
+      <div [ngClass]="ngselect.isOpen?'col-6':'col-4'">
+        <ng-select [clearable]='false' class="custom" formControlName="shipperPhoneCode" #ngselect placeholder="Phone No">
+          <ng-option *ngFor="let c of countries" [value]="c.phonePrefixValue">
+            <ng-container *ngIf="ngselect.isOpen; else elseColsedCountryOption">
+              {{c.phonePrefixText}} {{c.name}}
+            </ng-container>
+            <ng-template #elseColsedCountryOption>
+              {{c.phonePrefixText}}
+            </ng-template>
+          </ng-option>
+        </ng-select>
       </div>
-      <div class="col-6">
+      <div [ngClass]="ngselect.isOpen?'col-6':'col-8'">
         <input id="phone" formControlName="shipperContact" type="text" class="form-control bg-dark"
           [ngClass]="{'is-invalid': invalidInput('shipperContact')}" placeholder="Phone No">
         <span *ngIf="invalidInput('shipperContact')" class="text-danger">
@@ -27,6 +34,7 @@
         </span>
       </div>
     </div>
+
     <div class="row mt-2">
       <div class="col-12">
         <label for="email" class="text-light">Email</label>

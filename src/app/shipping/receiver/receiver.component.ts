@@ -31,12 +31,20 @@ export class ReceiverComponent extends SettingHeader implements OnInit, OnDestro
     this.getCountries();
     this.loadLocalData();
 }
+
+
 getCountries(){
+  var ctrz = this.getCountriesFromLocal();
+  if(!!ctrz && ctrz.length > 0){
+    this.countries = ctrz;
+  }else{
   this._service.get_countries()
-  .pipe(
-    tap((res)=>this.countries = res)
-  )
-  .subscribe();
+    .pipe(
+      tap((res) => this.setCountries(res)),
+      tap((res) => this.countries = res)
+    )
+    .subscribe();
+  }
 }
 
 loadLocalData(){

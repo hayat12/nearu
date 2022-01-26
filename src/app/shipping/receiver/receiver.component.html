@@ -8,19 +8,26 @@
           [ngClass]="{'is-invalid': invalidInput('receiverName')}" placeholder="Name">
         <span *ngIf="invalidInput('receiverName')" class="text-danger">Name is required</span>
       </div>
-
     </div>
-    <div class="row">
+
+    <div class="row mt-2">
       <label for="phone" class="col-12 text-light">Phone No</label>
-      <div class="col-6">
-        <select formControlName="receiverPhoneCode" class="form-control bg-dark" name="phonecode" id="phonecode">
-          <option *ngFor="let c of countries" [value]="c.phonePrefixValue">{{c.name}} {{c.phonePrefixText}}</option>
-        </select>
+      <div [ngClass]="ngselect.isOpen?'col-6':'col-4'">
+        <ng-select [clearable]='false' class="custom" formControlName="receiverPhoneCode" #ngselect placeholder="Phone No">
+          <ng-option *ngFor="let c of countries" [value]="c.phonePrefixValue">
+            <ng-container *ngIf="ngselect.isOpen; else elseColsedCountryOption">
+              {{c.phonePrefixText}} {{c.name}}
+            </ng-container>
+            <ng-template #elseColsedCountryOption>
+              {{c.phonePrefixText}}
+            </ng-template>
+          </ng-option>
+        </ng-select>
+
       </div>
-      <div class="col-6">
+      <div [ngClass]="ngselect.isOpen?'col-6':'col-8'">
         <input formControlName="receiverContact" id="phone" type="text" class="form-control bg-dark"
           [ngClass]="{'is-invalid': invalidInput('receiverContact')}" placeholder="Phone No">
-        <!-- <span *ngIf="invalidInput('receiverContact')" class="text-danger">Phone No is required</span> -->
         <span *ngIf="invalidInput('receiverContact')" class="text-danger">
           <span *ngIf="form.get('receiverContact')?.hasError('required')">Phone No is required</span>
           <span *ngIf="form.get('receiverContact')?.hasError('pattern')">Phone No is invalid</span>

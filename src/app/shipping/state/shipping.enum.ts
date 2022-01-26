@@ -6,6 +6,7 @@ export enum EnumScreen{
   PARCELS = "parcels",
   COMPLETED = "completed",
   CART = "cart",
+  COUNTRIES="countries"
 }
 
 export enum ActionsTypes{

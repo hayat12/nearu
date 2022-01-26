@@ -6,3 +6,23 @@ body{
   max-width: 60px !important;
   max-height: 55px !important;
 }
+
+
+.ng-select.custom .ng-select-container  {
+  background-color: #343a40 !important;
+  color: white;;
+}
+.ng-select.ng-select-opened>.ng-select-container  {
+  background-color: #343a40 !important;
+  color: white;;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+  background-color: #343a40 !important;
+  color: white;;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked{
+  background-color: white !important;
+}
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+  background-color: white !important;
+}

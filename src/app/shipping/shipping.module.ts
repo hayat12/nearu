@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ParcelsComponent } from './parcels/parcels.component';
 import { ServiceService } from './services/service.service';
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AppHeaderComponent } from './app-header/app-header.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    ShippingRoutingModule
+    ShippingRoutingModule,
+    NgSelectModule
   ],
   providers: [ServiceService]
 })
