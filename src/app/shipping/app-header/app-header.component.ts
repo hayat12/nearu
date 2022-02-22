@@ -1,7 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SettingHeader } from '../setting-header';
-import { EnumScreen } from '../state/shipping.enum';
 
 @Component({
   selector: 'app-app-header',
@@ -21,7 +20,6 @@ export class AppHeaderComponent extends SettingHeader implements OnInit {
       this.resetLoacalStorage();
     }else{
       this.clearInfo();
-      localStorage.removeItem((EnumScreen.SENDER));
     }
   }
 

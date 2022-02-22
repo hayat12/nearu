@@ -135,7 +135,6 @@ export class SettingHeader {
    */
 
   clearInfo() {
-    // localStorage.removeItem(EnumScreen.SENDER);
     localStorage.removeItem(EnumScreen.RECEIVER);
     localStorage.removeItem(EnumScreen.COURIER_SERVICE_OPTIONS);
     localStorage.removeItem(EnumScreen.PARCEL_DETAILS);

@@ -51,6 +51,13 @@ export class CourierServiceOptionsComponent extends SettingHeader implements OnI
           const courier = this.getCourierDetails();
           if(this.isEmpty(courier.businessId)){
             this.selectedCourier(res[0]);
+          }else{
+            // const courier = this.getCourierDetails();
+            for (let i = 0; i < res.length; i++) {
+              if (res[i].businessId==courier.businessId) {
+                this.selectedCourier(res[i]);
+              }
+            }
           }
         }
       }),
@@ -79,7 +86,7 @@ export class CourierServiceOptionsComponent extends SettingHeader implements OnI
         "businessName": [null, [Validators.required]],
         "businessLogo": [null],
         "amount": [null ],
-        "taxAmount": [null ]
+        "taxAmount": [null]
       }
     );
   }
