@@ -18,9 +18,25 @@
         </div>
       </li>
     </ul>
-    <div *ngIf="courierServiceList.length < 1" class="text-light text-center mt-3">
+
+    <!-- <div *ngIf="courierServiceList.length < 1 && !isLoading" class="text-light text-center mt-3">
       No courier options available for the addresses provided.
     </div>
+    <div *ngIf="courierServiceList.length < 1 && isLoading" class="text-light text-center mt-3">
+      No courier options available for the addresses provided.
+    </div> -->
+
+    <ng-container *ngIf="courierServiceList.length < 1 && isLoading">
+      <div class="text-light text-center mt-3">
+        <i class="fa fa-spinner" aria-hidden="true"></i>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="courierServiceList.length < 1 && !isLoading">
+      <div class="text-light text-center mt-3">
+        No courier options available for the addresses provided.
+      </div>
+    </ng-container>
+
   </div>
 
   <div class="row mt-3">
