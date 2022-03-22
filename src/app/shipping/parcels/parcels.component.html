@@ -13,6 +13,12 @@
     {{error.message}}
   </div>
 
+  <div *ngIf="isLoading">
+    <div class="alert alert-info">
+      Loading ... <i class="fa fa-spinner" aria-hidden="true"></i>
+    </div>
+  </div>
+
   <div class="list mt-1" *ngIf="carts.length > 0">
     <ul class="list-group list-group-flush">
       <li *ngFor="let o of carts; let i=index" class="list-group-item bg-dark text-light">

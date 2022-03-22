@@ -18,6 +18,7 @@ export class ParcelsComponent extends SettingHeader implements OnInit {
   carts:CartInterface[] = [];
   selectedItem:any;
   modal:ConfirmationModalInterface;
+  isLoading:boolean = false;
   error = {
     error: false,
     message: ""
@@ -80,11 +81,14 @@ export class ParcelsComponent extends SettingHeader implements OnInit {
 
   confirmSendParcel(data:SenderInterface[]){
     this.error.error = false;
+    this.isLoading = true;
     this._service.post_sendParcel(data)
     .pipe(
       tap((res)=>this.resetLoacalStorage()),
       tap((res)=>this.router.navigate(['../completed'], {relativeTo: this.activateRouter})),
+      tap(()=>this.isLoading = false),
       catchError((e)=>{
+        this.isLoading = false;
         let message = "An internal error occurred during your request!";
         if(!this.isEmpty(e.error)){
           if (!this.isEmpty(e.error.error)){
