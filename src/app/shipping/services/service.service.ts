@@ -17,12 +17,18 @@ export class ServiceService {
   ) { }
 
   get_countries(): Observable<CountrySelectList[]> {
-    return this.http.get<CountrySelectList[]>(`${this.baseUrl}/api/v1/country/selectlist`);
+    return this.http.get<{items: CountrySelectList[]}>(`${this.baseUrl}/api/v1/country/selectlist`)
+    .pipe(
+      map((e)=>e.items)
+    );
   }
 
   get_CourierServicesOption(params: CourierParamsInterface): Observable<CourierInterface[]> {
     const _params = this.extractParams(params);
-    return this.http.get<CourierInterface[]>(`${this.baseUrl}/api/v1/ratecard/bypostcode`, { params: _params });
+    return this.http.get<{items: CourierInterface[]}>(`${this.baseUrl}/api/v1/ratecard/bypostcode`, { params: _params })
+    .pipe(
+      map((e)=>e.items)
+    );
   }
 
 
