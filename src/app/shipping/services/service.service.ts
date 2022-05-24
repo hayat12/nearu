@@ -2,10 +2,11 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CountrySelectList, PhoneCodeSelectListInterface,  } from '../state/shipping.interface';
-import { tap, map } from 'rxjs/operators';
+import { CountrySelectList,  } from '../state/shipping.interface';
+import { map } from 'rxjs/operators';
 import { CourierInterface, CourierParamsInterface } from '../state/courier/courier.interface';
 import { SenderInterface } from '../state/sender/sender.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -61,7 +62,7 @@ export class ServiceService {
   }
 
   post_sendParcel(data:SenderInterface[]):Observable<any>{
-    return this.http.post<any>(`${this.baseUrl}/api/v1/public/parcel/send`, data);
+    return this.http.post<any>(`${this.baseUrl}/api/v1/public/parcel/send`, data, );
   }
   // get_phoneCodes(): Observable<PhoneCodeSelectListInterface[]> {
   //   return this.http.get<PhoneCodeSelectListInterface[]>(`${this.baseUrl}/api/v1/country/selectlist/phone`);

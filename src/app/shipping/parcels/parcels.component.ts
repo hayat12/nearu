@@ -8,6 +8,7 @@ import { sendParcelData } from '../state/parcel/parcels';
 import { CartInterface, ConfirmationModalInterface } from '../state/parcel/parcels.interface';
 import { SenderInterface } from '../state/sender/sender.interface';
 import { ActionsTypes } from '../state/shipping.enum';
+
 declare var $:any;
 @Component({
   selector: 'app-parcels',
@@ -26,7 +27,7 @@ export class ParcelsComponent extends SettingHeader implements OnInit {
   constructor(
     private router:Router,
     private activateRouter:ActivatedRoute,
-    private _service:ServiceService
+    private _service:ServiceService,
   ) { super() }
 
   ngOnInit(): void {
@@ -80,6 +81,7 @@ export class ParcelsComponent extends SettingHeader implements OnInit {
   }
 
   confirmSendParcel(data:SenderInterface[]){
+
     this.error.error = false;
     this.isLoading = true;
     this._service.post_sendParcel(data)
