@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://stagapp.near-u.asia',
-  logoBaseUrl: 'https://stagmedia.near-u.asia/uploads'
+  baseUrl: 'https://app.near-u.asia',
+  logoBaseUrl: 'https://media.near-u.asia/uploads'
 };
